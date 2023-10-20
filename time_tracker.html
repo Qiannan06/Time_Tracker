@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Time Tracker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      #content {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #timer {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Employee Time Tracker</h1>
+    </header>
+    <div id="content">
+      <h2>Employee Sign In</h2>
+      <button id="signInButton" onclick="redirectToEmployeeDetails()">
+        Sign In
+      </button>
+
+      <h2>Recorded Time</h2>
+      <p id="timer">00:00:00</p>
+    </div>
+
+    <script>
+      function redirectToEmployeeDetails() {
+        // Redirect to the employee details page
+        window.location.href =
+          "https://goldenstem.auth.us-east-1.amazoncognito.com/login?client_id=2phf1h80oldvkm3b0jojrv3q1u&response_type=code&scope=email+openid&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2FSigned_in_page.html";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Employee Time Tracker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      #content {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #timer {
+        font-size: 24px;
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Time Tracker</h1>
+    <div id="timer">00:00:00</div>
+    <button id="signOutButton">Sign Out</button>
+    <script>
+      // JavaScript code for the timer (example)
+      let timerRunning = true;
+      let timerInterval;
+      let seconds = 0;
+      let minutes = 0;
+      let hours = 0;
+      const timerDisplay = document.getElementById("timer");
+
+      function startTimer() {
+        if (!timerRunning) {
+          timerRunning = true;
+          timerInterval = setInterval(updateTimer, 1000);
+          employeeDetails.style.display = "block"; // Show the employee details
+        }
+      }
+
+      function stopTimer() {
+        clearInterval(timerInterval);
+        timerRunning = true;
+      }
+
+      function updateTimer() {
+        seconds++;
+        if (seconds === 60) {
+          seconds = 0;
+          minutes++;
+          if (minutes === 60) {
+            minutes = 0;
+            hours++;
+          }
+        }
+        timerDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+      }
+
+      startTimer();
+
+      // Sign Out button
+      const signOutButton = document.getElementById("signOutButton");
+      signOutButton.addEventListener("click", function () {
+        // Implement your sign-out logic here, if necessary
+        // Redirect back to the sign-in page
+        window.location.href = "time_tracker.html";
+      });
+
+      // Start the timer and display employee details when the page loads
+      startTimer();
+    </script>
+  </body>
+</html>
